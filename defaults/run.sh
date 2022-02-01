@@ -19,11 +19,11 @@ if [ ! -d /home/banya/ ]; then
   chown banya:zavi -R /home/banya /root
   chmod 0755 -R /home/banya /root
 fi
-if [ ! -f /root/data/settings.json ]; then
-  echo "Create Transmission settings"
-  cp /defaults/settings.json /root/data/settings.json
-  chown banya:zavi /root/data/settings.json
-fi
+#if [ ! -f /root/data/settings.json ]; then
+#  echo "Create Transmission settings"
+#  cp /defaults/settings.json /root/data/settings.json
+#  chown banya:zavi /root/data/settings.json
+#fi
 if [ ! -f /var/www/html/torr/torr.php ]; then
   echo "Create It's torr!"
   cp /defaults/torr.php /var/www/html/torr/torr.php
@@ -39,7 +39,7 @@ if [ ! -f /root/data/h2.mv.db ]; then
 fi
 
 # Run Transmission & Nginx (PHP7)
-su - banya -c "transmission-daemon -g /root/data"
+#su - banya -c "transmission-daemon -g /root/data"
 service php7.4-fpm start
 service nginx start
 

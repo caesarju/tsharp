@@ -14,14 +14,14 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     wget \
     openssl \
-    transmission-daemon \
+#    transmission-daemon \
     nginx \
     php7.4 \
     php7.4-fpm \
     php7.4-curl
 
 # Transmission
-RUN mkdir -p /config
+#RUN mkdir -p /config
 
 # Nginx
 RUN rm /var/www/html/index.nginx-debian.html && \
@@ -29,7 +29,7 @@ RUN rm /var/www/html/index.nginx-debian.html && \
     chown -R www-data:www-data /var/www/html
 
 # Copy files
-COPY ./defaults/settings.json /defaults/settings.json
+#COPY ./defaults/settings.json /defaults/settings.json
 COPY ./defaults/default /etc/nginx/sites-available/default
 COPY --chown=www-data:www-data ./defaults/torr.php /defaults/torr.php
 COPY ./defaults/h2.mv.db /defaults/h2.mv.db
